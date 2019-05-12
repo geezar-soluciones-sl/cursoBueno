@@ -1,15 +1,15 @@
-def sumaTodos(limitTo):
+def normal(x):
+    return x
+
+def cuadrados(x):
+    return x*x
+
+def sumaTodos(limitTo, f):
     resultado=0
     for i in range (0,limitTo+1):
-        resultado += i
+        resultado += f(i)
     return resultado
 
-def sumaTodosCuadrados(limitTo):
-    resultado=0
-    for i in range (0,limitTo+1):
-        resultado += i*i
-    return resultado
-
-print(sumaTodos(100))
-print(sumaTodosCuadrados(100))
+print(sumaTodos(100,normal))
+print(sumaTodos(100,cuadrados))
         
