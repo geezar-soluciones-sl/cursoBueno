@@ -14,7 +14,7 @@ class Termometro():
     def __conversor(self, temperatura,unidades):
         if unidades == "C":
             t = temperatura * 9 / 5 +32
-            return "{} F".format(t)
+            return "{} ºF".format(t)
         elif unidades =="F":
             t = (temperatura - 32 ) * 5 / 9
             return "{} ºC".format(t)
@@ -37,11 +37,14 @@ class Termometro():
             return self.__temperatura
         else:
             self.__temperatura = temp
-# Método para devolver la medida
+# Método para devolver la medida, con dudas o errores pasamos lo que tenemos y fuera
     def mide(self, unid=None):
         if unid == None or unid == self.__unidades:
             return self.__str__()
         else:
-            return self.__conversor(self.__temperatura, self.__unidades)
+            if unid == "C" or unid == "F":
+                return self.__conversor(self.__temperatura, self.__unidades)
+            else:
+                return self.__str__()
         
 
